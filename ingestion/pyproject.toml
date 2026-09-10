@@ -1,5 +1,5 @@
 [project]
-name = "ingestion-msvc"
+name = "ingestion"
 version = "0.1.0"
 description = "ingestion microservice for parsing, extracting, and chunking files into LLM-readable formats for retrieval-augmented generation (RAG) pipelines"
 readme = "README.md"
@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.14"
 dependencies = [
+    "pydantic>=2.13.5",
     "pymupdf4llm>=1.28.2",
 ]
 
@@ -17,3 +18,9 @@ ingestion = "ingestion:main"
 [build-system]
 requires = ["uv_build>=0.12.12,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.6",
+]
