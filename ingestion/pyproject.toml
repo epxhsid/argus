@@ -1,0 +1,19 @@
+[project]
+name = "ingestion-msvc"
+version = "0.1.0"
+description = "ingestion microservice for parsing, extracting, and chunking files into LLM-readable formats for retrieval-augmented generation (RAG) pipelines"
+readme = "README.md"
+authors = [
+    { name = "Joaquin M.", email = "joaqu26@proton.me" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pymupdf4llm>=1.28.2",
+]
+
+[project.scripts]
+ingestion = "ingestion:main"
+
+[build-system]
+requires = ["uv_build>=0.12.12,<0.13.0"]
+build-backend = "uv_build"
