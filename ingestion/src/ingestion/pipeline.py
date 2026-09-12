@@ -30,4 +30,5 @@ class IngestionPipeline:
 
         async with self.session.begin():
             await self.documents.create(document)
+            await self.session.flush()
             await self.chunks.create_many(chunks)

@@ -1,9 +1,11 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-load_dotenv()
+PROJECT_ROOT = Path(__file__).resolve().parents[4]
+load_dotenv(PROJECT_ROOT / ".env")
 
 DATABASE_URL = os.environ["ASYNCPGDBURL"]
 
