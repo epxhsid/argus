@@ -5,7 +5,7 @@ from ingestion.database.models import ChunkModel
 from ingestion.models.document import UUID, Chunk
 
 
-class ChunkRepository:
+class ChunkPersistence:
     def __init__(self, session: AsyncSession): self.session = session
 
     async def create_many(self, chunks: list[Chunk]) -> None:
