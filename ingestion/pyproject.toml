@@ -12,6 +12,7 @@ dependencies = [
     "psycopg[binary]>=3.3.5",
     "pydantic>=2.13.5",
     "pymupdf4llm>=1.28.2",
+    "python-dotenv>=1.2.3",
     "sqlalchemy>=2.0.52",
 ]
 
