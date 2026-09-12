@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres-18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: argus
+      POSTGRES_USER : argus
+      POSTGRES_PASSWORD: argus
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
