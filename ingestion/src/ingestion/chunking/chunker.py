@@ -6,19 +6,20 @@ from ingestion.models.document import Chunk, Document
 class DocumentChunking:
     def __init__(self, *, max_characters: int = 2000, overlap_characters: int = 200):
 
-
         self.max_characters = max_characters
         self.overlap_characters = overlap_characters
 
-    # chunks documents into manageable chunks as LLM readable segments
+    # chunks documents into manageable chunks (LLM-readable segments)
     def chunk(self, document: Document) -> list[Chunk]:
         chunks: list[Chunk] = []
 
-        # only splits large paragraphs in the case that the
-        # max characters of a paragraph has exceeded its limit
+        # for pages, split them into paragraphs
         for page in document.pages:
             paragraphs = self._split_paragraphs(page.text)
 
+            # but in the case that a paragraph has exceeded its max character limit
+            # per defined in the class initalization, function should separate long
+            # paragraphs into manageable chunks
             for paragraph in paragraphs:
                 if len(paragraph) <= self.max_characters:
                     chunks.append(
